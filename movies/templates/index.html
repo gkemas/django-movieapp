@@ -14,47 +14,7 @@
     />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div class="container">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarColor02"
-          aria-controls="navbarColor02"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarColor02">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-light" type="submit">Search</button>
-          </form>
-        </div>
-      </div>
-    </nav>
+     {%include 'partials/_navbar.html' %}
     <div class="container mt-3">
       <div class="row">
         <div class="col-3">
@@ -62,7 +22,7 @@
             {%for kategori in kategoriler %}
             <a
               href="#"
-              class="list-group-item list-group-item-action active"
+              class="list-group-item list-group-item-action"
               aria-current="true"
             >
               {{kategori}}
@@ -75,19 +35,7 @@
             {%for film in filmler%}
              {%if film.anasayfa %}
             <div class="col-4">
-              <div class="card" style="width: 18rem;">
-                <img
-                  src="{% static 'img/'|add:film.resim  %}"
-                  class="card-img-top"
-                  alt="..."
-                  style="height: 18rem;"
-                />
-                <div class="card-body">
-                  <h5 class="card-title">{{film.film_adı}}</h5>
-                  <p class="card-text">{{film.aciklama}}</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
+          {% include 'partials/_movie.html'%}
             </div>
             {%endif%} {%endfor%}
           </div>
